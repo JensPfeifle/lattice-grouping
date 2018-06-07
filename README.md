@@ -1,1 +1,1 @@
-lattice-grouping
+Create element groups of multiple  elements between nodes of a beam lattice structure.
