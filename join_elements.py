@@ -52,16 +52,24 @@ def get_element_sets(beam_node_associations):
     return {'ends': lattice_end_elems, 'nodes': lattice_node_elems, 'inner': lattice_inner_elems}
 
 
+def get_nodes_at_beam(eid):
+    return beams[eid]
+
+
+def get_beams_by_node(nodeid):
+    return beams_by_node[nodeid]
+
+
 def get_groups_at_node(node_id):
     groups = []
-    attached_elems = beams_by_node[node_id]
+    attached_elems = get_beams_by_node(node_id)
     for elem_id in attached_elems:
         this_group = set()
         current_node = node_id
         current_elem = elem_id
         at_end = False
         while (not at_end):
-            node1, node2 = beams[current_elem]
+            node1, node2 = get_nodes_at_beam[current_elem]
             # print('element {} is attached to nodes {} and {}'.format(current_elem,node1,node2))
             if node1 == current_node:
                 next_node = node2
@@ -69,7 +77,7 @@ def get_groups_at_node(node_id):
                 next_node = node1
             # print('checking node {}'.format(next_node))
             current_node = next_node
-            elems = beams_by_node[next_node]
+            elems = get_beams_by_node(next_node)
             # print('elements {} are attached to node {}'.format(elems, next_node))
             if len(elems) == 2:
                 elem1, elem2 = elems
@@ -92,37 +100,37 @@ def get_groups_at_node(node_id):
     return groups
 
 
-# TODO: modify this to get element group starting from any element
-def get_group_of_elem(elem_id):
-    this_group = set()
-    current_elem = elem_id
+def get_elems_to_end(current_elem, start_node):
     at_end = False
-    while (not at_end):
-        node1, node2 = beams[current_elem]
-        # print('element {} is attached to nodes {} and {}'.format(current_elem,node1,node2))
-        if node1 == current_node:
-            next_node = node2
-        else:
-            next_node = node1
-        # print('checking node {}'.format(next_node))
-        current_node = next_node
-        elems = beams_by_node[next_node]
-        # print('elements {} are attached to node {}'.format(elems, next_node))
-        if len(elems) == 2:
-            elem1, elem2 = elems
+    elems = set()
+    elems.add(current_elem)
+    current_node = start_node
+    while not at_end:
+        attached_elems = get_beams_by_node(current_node)
+        if len(attached_elems) == 2:
+            elem1, elem2 = attached_elems
             if elem1 == current_elem:
                 next_elem = elem2
             else:
                 next_elem = elem1
+            node1, node2 = get_nodes_at_beam(next_elem)
+            if node1 == current_node:
+                next_node = node2
+            else:
+                next_node = node1
+            elems.add(next_elem)
+            current_node = next_node
+            current_elem = next_elem
         else:
-            # print('at end or lattice node')
             at_end = True
-        # print('checking elem {}'.format(next_elem))
-        this_group.add(current_elem)
-        current_elem = next_elem
-        # print('EOL')
+    return elems
+
+
+def get_group_of_elem(elem_id):
+    node1, node2 = get_nodes_at_beam(elem_id)
+    this_group = get_elems_to_end(elem_id, node1) | get_elems_to_end(elem_id, node2)
     if len(this_group) == 0:
-        print('zero size group at node {}, elem {}'.format(node_id, elem_id))
+        print('zero size group at elem {}'.format(elem_id))
     return this_group
 
 
@@ -164,27 +172,19 @@ if __name__ == '__main__':
     beams = read_beams_from_inp(beam_lines)
     beams_by_node = associate_beams_to_nodes(beam_lines)
 
-    element_list = list(beams.keys())
+    all_elements = set(beams.keys())
 
-    group = get_group_of_elem(element_list[5])
+    element_sets = []
+    while len(all_elements) > 0:
+        group = get_group_of_elem(all_elements.pop())
+        element_sets.append(group)
+        all_elements -= group
 
-    """
-    groups_at_nodes = {}
-    for n in lattice_node_nodes:
-        groups_at_nodes[n] = get_groups_at_node(n)
-
-    flat_groups = [g for k, ng in groups_at_nodes.items() for g in ng]
-
-    unique_sets = list(set(frozenset(fg) for fg in flat_groups))
-    # convert back to set
-    # [set(item) for item in set(frozenset(item) for item in L)]#
-    
-    num_sets = len(unique_sets)
+    num_sets = len(element_sets)
     print('Writing {} element sets to output.inp'.format(num_sets))
     set_names = ['beams_{:06}'.format(n + 1) for n in range(num_sets)]
     with open('output.inp', 'w') as f:
-        for n, elemset in enumerate(unique_sets):
+        for n, elemset in enumerate(element_sets):
             f.write(elset_for_inp(set_names[n], elemset))
     with open('dvcon.par', 'w') as f:
         f.write(dvcon_block_for_par(set_names))
-    """
