@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb9ee56-90dc-4147-9589-5b9324ecfadd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/join_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/join_elements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.inp" beforeDir="false" afterPath="$PROJECT_DIR$/output.inp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="join_elements.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/join_elements.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="543">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
@@ -31,6 +31,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Set()</find>
+      <find>&lt;br /&gt;</find>
+      <find>*</find>
+      <find>beams_b</find>
+      <find>beams</find>
+      <find>beams_by</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -39,6 +44,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/sdf" />
         <option value="$PROJECT_DIR$/join_elements.py" />
       </list>
     </option>
@@ -53,9 +59,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
+    <option name="x" value="692" />
     <option name="y" value="-10" />
-    <option name="width" value="2397" />
+    <option name="width" value="2740" />
     <option name="height" value="1421" />
   </component>
   <component name="ProjectView">
@@ -157,31 +163,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="-10" width="2397" height="1421" extended-state="0" />
+    <frame x="692" y="-10" width="2740" height="1421" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="549" height="1221" id="Documentation" sideWeight="0.50057405" side_tool="true" visible="true" weight="0.3292216" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32948422" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" weight="0.32948422" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942595" visible="true" weight="0.10250957" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32948422" />
-      <window_info anchor="right" id="SciView" sideWeight="0.49942595" visible="true" weight="0.3292216" />
-      <window_info id="Structure" order="1" sideWeight="0.50057405" side_tool="true" visible="true" weight="0.10250957" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" x="0" y="0" width="549" height="1221" id="Documentation" order="2" sideWeight="0.501574" side_tool="true" visible="true" weight="0.28730512" />
+      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.26635873" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.32948422" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49947533" visible="true" weight="0.15293244" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32948422" />
+      <window_info anchor="right" id="SciView" order="1" sideWeight="0.49842602" visible="true" weight="0.28730512" />
+      <window_info id="Structure" order="2" sideWeight="0.50052464" side_tool="true" visible="true" weight="0.15293244" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.3995381" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,10 +197,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sdf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/join_elements.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="543">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
     </entry>
